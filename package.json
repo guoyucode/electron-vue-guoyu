@@ -1,0 +1,101 @@
+{
+  "name": "electron-vue",
+  "author": {
+    "name": "guoyu",
+    "email": "guoyumail@qq.com"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/main.js",
+  "scripts": {
+    "dev-vue": "cross-env NODE_ENV=development vue-cli-service serve",
+    "dev-electron": "cross-env NODE_ENV=development electron --inspect=5858 electron-main/main.js ",
+    "build-electron-vue": "vue-cli-service build && webpack --config=electron-main/build.js && electron-builder"
+  },
+  "dependencies": {
+    "axios": "0.19.0",
+    "echarts": "4.2.1",
+    "element-ui": "2.12.0",
+    "qs": "6.8.0",
+    "vue": "2.6.10",
+    "vue-router": "3.1.2",
+    "vue-view-lazy": "0.0.6"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "3.11.0",
+    "vue-template-compiler": "2.6.10",
+    "cross-env": "5.2.0",
+    "electron": "6.0.7",
+    "electron-updater": "4.1.2",
+    "electron-debug": "3.0.1",
+    "electron-builder": "21.2.0",
+    "webpack-cli": "3.3.7"
+  },
+  "vue": {
+    "publicPath": "./",
+    "outputDir": "dist",
+    "assetsDir": "",
+    "lintOnSave": false,
+    "runtimeCompiler": true,
+    "productionSourceMap": false,
+    "parallel": true
+  },
+  "build": {
+    "productName": "electron-vue",
+    "appId": "electron-vue-appid",
+    "directories": {
+      "output": "build"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "url": "https://github.com",
+        "owner": "you github name",
+        "repo": "your repo",
+        "private": false
+      }
+    ],
+    "files": [
+      "dist/**"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "public/icons/icon.icns"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "public/icons/icon.ico"
+    },
+    "linux": {
+      "icon": "public/icons/icons"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
