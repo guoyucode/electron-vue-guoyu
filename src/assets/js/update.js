@@ -91,7 +91,7 @@ export const update = function(_this){
     checkForUpdate(_this)
 }
 
-let isDev = process.env.NODE_ENV === 'development'
+let isDev = process.env.NODE_ENV == 'development'
 let checkForUpdate = function (_this) {
     if(isDev) {
         console.warn("开发环境不检测更新")

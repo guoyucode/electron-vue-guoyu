@@ -28,8 +28,8 @@ module.exports = mainWindow => {
     //const uploadUrl = packageInfo.build.publish[0].url; // 下载地址，不加后面的**.exe
 
     //github的下载包方式
-    let publish = packageInfo.build.publish[0];
-    autoUpdater.setFeedURL(publish);
+    //let publish = packageInfo.build.publish[0];
+    //autoUpdater.setFeedURL(publish);
 
     autoUpdater.on('update-not-available', function (info) {
         sendUpdateMessage(message.updateNotAva)

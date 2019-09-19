@@ -7,7 +7,8 @@ const path = require("path");
 let updateHandle = require("./update")
 let {showTray, checkForUpdates} = require("./tray")
 let setHotKeyFun = require("./hotKey")
-//import store from '../renderer/store/index'
+
+//let v = require("./sqlite/sqlite_util")
 
 let isDev = process.env.NODE_ENV && process.env.NODE_ENV == 'development'
 let env_openChromeDevTools = !!process.env.openChromeDevTools;
@@ -21,10 +22,15 @@ let isOpenDevTools = (env_openChromeDevTools || isDev)
     global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
 }*/
 
-let staticVar = require('path').join("static")
-if(!isDev) {
-  staticVar = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
-}
+if(isDev) global.__static = require('path').join(__dirname, "../public").replace(/\\/g, '\\\\');
+else global.__static = require('path').join(__dirname, "../dist").replace(/\\/g, '\\\\');
+
+
+/**
+ * 托盘变量定义
+ * @type {string}
+ */
+const trayIcon = __static + "/icons/icon.ico";
 
 if(isOpenDevTools){
   app.on('ready', () => {
@@ -72,7 +78,7 @@ function createWindow () {
   }
   
   if(isDev) mainWindow.loadURL(loadUrl)
-  else mainWindow.loadFile("dist/index.html")
+  else mainWindow.loadFile(`${__static}/index.html`)
 
   //自动更新方法
   updateHandle(mainWindow)
@@ -106,8 +112,6 @@ ipcMain.on("showWindows", () => {
 
 
 //托盘设置----------------------------------------------------
-let trayIcon = isDev ? './public/icons/icon.ico': path.resolve("./") + "/resources/app.asar/dist/icons/icon.ico"
-
 function openWindow(menuItem, browserWindow, event) {
   mainWindow.show()
 }
