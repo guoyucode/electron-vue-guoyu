@@ -6,7 +6,7 @@
 let { ipcMain } = require('electron')
 let { autoUpdater } = require('electron-updater')
 
-const packageInfo = require('../package.json');
+const packageInfo = require('./package.json');
 
 // 检测更新，在你想要检查更新的时候执行，renderer事件触发后的操作自行编写
 module.exports = mainWindow => {
