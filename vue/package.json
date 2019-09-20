@@ -34,62 +34,6 @@
     "productionSourceMap": false,
     "parallel": true
   },
-  "build2": {
-    "asar": true,
-    "productName": "electron-vue",
-    "appId": "electron-vue-appid",
-    "directories": {
-      "output": "build"
-    },
-    "publish": [
-      {
-        "provider": "github",
-        "url": "https://github.com",
-        "owner": "you github name",
-        "repo": "your repo",
-        "private": false
-      }
-    ],
-    "files": [
-      "dist/**",
-      "electron-main/**"
-    ],
-    "dmg": {
-      "contents": [
-        {
-          "x": 410,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
-        },
-        {
-          "x": 130,
-          "y": 150,
-          "type": "file"
-        }
-      ]
-    },
-    "mac": {
-      "target": [
-        "dmg"
-      ],
-      "icon": "public/icons/icon.icns"
-    },
-    "win": {
-      "target": [
-        "nsis"
-      ],
-      "icon": "public/icons/icon.ico"
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
-      "perMachine": true
-    },
-    "linux": {
-      "icon": "public/icons/icons"
-    }
-  },
   "postcss": {
     "plugins": {
       "autoprefixer": {}

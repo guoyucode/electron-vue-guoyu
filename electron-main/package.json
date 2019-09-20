@@ -35,6 +35,7 @@
   },
   "build": {
     "asar": true,
+    "npmRebuild": false,
     "productName": "electron-vue",
     "appId": "electron-vue-appid",
     "directories": {
