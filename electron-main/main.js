@@ -132,3 +132,6 @@ app.on('ready', () => {
 
 
 
+//数据库初始化, 渲染进程中使用方法: window.require("electron").remote.getGlobal("__sqliteDB");
+global.SqliteDB = require("./sqlite");
+

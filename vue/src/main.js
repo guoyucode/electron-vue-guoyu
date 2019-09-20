@@ -3,7 +3,6 @@ import App from './App'
 import router from './router'
 import vView from 'vue-view-lazy'
 import {update} from "./assets/js/update"
-import "./assets/js/init-sqlite" //初始化数据库
 //import store from './store'
 //import configData from "./page/js/config_data"
 
@@ -36,3 +35,8 @@ new Vue({
     update(this);
   },
 }).$mount('#app')
+
+
+//获得数据库对象
+const SqliteDB = window.require("electron").remote.getGlobal("SqliteDB");
+console.log("sqliteDB", new SqliteDB())
