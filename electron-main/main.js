@@ -22,9 +22,7 @@ let isOpenDevTools = (env_openChromeDevTools || isDev)
     global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
 }*/
 
-if(isDev) global.__static = require('path').join(__dirname, "../public").replace(/\\/g, '\\\\');
-else global.__static = require('path').join(__dirname, "../dist").replace(/\\/g, '\\\\');
-
+global.__static = require('path').join(__dirname, "./").replace(/\\/g, '\\\\');
 
 /**
  * 托盘变量定义
@@ -78,7 +76,7 @@ function createWindow () {
   }
   
   if(isDev) mainWindow.loadURL(loadUrl)
-  else mainWindow.loadFile(`${__static}/index.html`)
+  else mainWindow.loadFile(`${__static}/dist/index.html`)
 
   //自动更新方法
   updateHandle(mainWindow)
