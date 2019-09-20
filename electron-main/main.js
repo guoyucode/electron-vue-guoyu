@@ -14,21 +14,14 @@ let isDev = process.env.NODE_ENV && process.env.NODE_ENV == 'development'
 let env_openChromeDevTools = !!process.env.openChromeDevTools;
 let isOpenDevTools = (env_openChromeDevTools || isDev)
 
-/**
- * Set `__static` path to static files in production
- * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
- */
-/*if (!isDev) {
-    global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
-}*/
 
-global.__static = require('path').join(__dirname, "./").replace(/\\/g, '\\\\');
+global.__main = require('path').join(__dirname, "./").replace(/\\/g, '\\\\');
 
 /**
  * 托盘变量定义
  * @type {string}
  */
-const trayIcon = __static + "/icons/icon.ico";
+const trayIcon = __main + "/icons/icon.ico";
 
 if(isOpenDevTools){
   app.on('ready', () => {
@@ -76,7 +69,7 @@ function createWindow () {
   }
   
   if(isDev) mainWindow.loadURL(loadUrl)
-  else mainWindow.loadFile(`${__static}/dist/index.html`)
+  else mainWindow.loadFile(`${__main}/dist/index.html`)
 
   //自动更新方法
   updateHandle(mainWindow)
