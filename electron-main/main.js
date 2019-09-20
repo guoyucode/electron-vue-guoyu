@@ -8,7 +8,6 @@ let updateHandle = require("./update")
 let {showTray, checkForUpdates} = require("./tray")
 let setHotKeyFun = require("./hotKey")
 
-let v = require("./sqlite/sqlite_util")
 
 let isDev = process.env.NODE_ENV && process.env.NODE_ENV == 'development'
 let env_openChromeDevTools = !!process.env.openChromeDevTools;
