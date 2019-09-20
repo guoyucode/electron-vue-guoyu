@@ -3,6 +3,7 @@ import App from './App'
 import router from './router'
 import vView from 'vue-view-lazy'
 import {update} from "./assets/js/update"
+import "./assets/js/init-sqlite" //初始化数据库
 //import store from './store'
 //import configData from "./page/js/config_data"
 
